@@ -1,809 +1,118 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نَمِّ فكرتك | من بذرة إلى مشروع</title>
-
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نَمِّ فكرتك</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #080d1b;
-  --panel: #111a30;
-  --panel2: #17223d;
-  --purple: #a78bfa;
-  --blue: #68a9ff;
-  --silver: #e1e8f5;
-  --muted: #aab7d0;
-  --green: #79e0b1;
-}
-
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background:
-    radial-gradient(ellipse at top right, #25204b 0, transparent 38%),
-    radial-gradient(ellipse at bottom left, #102c4c 0, transparent 35%),
-    var(--bg);
-  color: var(--silver);
-  font-family: Tahoma, Arial, sans-serif;
-  line-height: 1.8;
-}
-
-button, input, textarea, select {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-header {
-  padding: 17px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #ffffff14;
-  background: #080d1bd9;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(12px);
-}
-
-.logo {
-  color: white;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.logo span {
-  color: var(--green);
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 9px;
-  font-size: 13px;
-}
-
-nav a:hover {
-  background: #ffffff12;
-  color: white;
-}
-
-.hero {
-  padding: 75px 7% 60px;
-  text-align: center;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.badge {
-  display: inline-block;
-  color: var(--green);
-  border: 1px solid #79e0b144;
-  border-radius: 30px;
-  padding: 5px 16px;
-  font-size: 13px;
-}
-
-h1 {
-  font-size: clamp(34px, 7vw, 65px);
-  line-height: 1.35;
-  margin: 20px 0;
-}
-
-.gradient {
-  background: linear-gradient(90deg, var(--blue), var(--purple), var(--green));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hero p {
-  color: var(--muted);
-  max-width: 650px;
-  margin: 0 auto 25px;
-}
-
-.actions {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 25px;
-}
-
-.btn {
-  border: 0;
-  border-radius: 12px;
-  padding: 12px 20px;
-  font-weight: bold;
-  background: linear-gradient(110deg, var(--blue), var(--purple));
-  color: #080d1b;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn:hover {
-  filter: brightness(1.12);
-  transform: translateY(-1px);
-}
-
-.btn.secondary {
-  color: var(--silver);
-  background: #ffffff0b;
-  border: 1px solid #ffffff22;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  margin-top: 45px;
-}
-
-.stat, .card, .box {
-  background: linear-gradient(145deg, #182440d9, #10182bd9);
-  border: 1px solid #ffffff12;
-  border-radius: 18px;
-  padding: 20px;
-}
-
-.stat strong {
-  display: block;
-  font-size: 24px;
-  color: var(--green);
-}
-
-.stat span {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-section {
-  padding: 48px 6%;
-  max-width: 1250px;
-  margin: auto;
-  scroll-margin-top: 95px;
-}
-
-.section-title {
-  margin-bottom: 25px;
-}
-
-.section-title h2 {
-  font-size: clamp(25px, 4vw, 36px);
-  margin: 0 0 8px;
-}
-
-.section-title p {
-  color: var(--muted);
-  margin: 0;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-  gap: 16px;
-}
-
-.card {
-  transition: .2s;
-}
-
-.card:hover {
-  border-color: #a78bfa66;
-  transform: translateY(-3px);
-}
-
-.icon {
-  font-size: 30px;
-}
-
-.card h3 {
-  margin: 8px 0;
-}
-
-.card p {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-input, textarea, select {
-  width: 100%;
-  color: var(--silver);
-  background: #080f20;
-  border: 1px solid #ffffff24;
-  border-radius: 11px;
-  padding: 12px;
-  outline: none;
-  margin: 7px 0 15px;
-}
-
-input:focus, textarea:focus, select:focus {
-  border-color: var(--purple);
-}
-
-textarea {
-  min-height: 95px;
-  resize: vertical;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.field {
-  margin-bottom: 10px;
-}
-
-.field small {
-  color: var(--muted);
-}
-
-.progress-wrap {
-  background: #ffffff12;
-  border-radius: 20px;
-  height: 8px;
-  margin: 15px 0 25px;
-  overflow: hidden;
-}
-
-#progress {
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, var(--blue), var(--green));
-  transition: .3s;
-}
-
-.step {
-  display: none;
-}
-
-.step.active {
-  display: block;
-}
-
-.step-number {
-  color: var(--green);
-  font-size: 13px;
-}
-
-.result {
-  display: none;
-  white-space: pre-wrap;
-  line-height: 2;
-  padding: 20px;
-  background: #080f20;
-  border: 1px solid #79e0b144;
-  border-radius: 14px;
-  margin-top: 20px;
-}
-
-.quiz-option {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  text-align: right;
-  background: #ffffff08;
-  border: 1px solid #ffffff20;
-  color: var(--silver);
-  border-radius: 10px;
-}
-
-.quiz-option:hover {
-  border-color: var(--purple);
-  background: #a78bfa14;
-}
-
-#quizFeedback {
-  margin-top: 12px;
-  font-weight: bold;
-}
-
-.notice {
-  border-right: 3px solid var(--green);
-  background: #79e0b10b;
-  padding: 12px 15px;
-  border-radius: 8px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-footer {
-  text-align: center;
-  border-top: 1px solid #ffffff14;
-  padding: 30px 15px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-@media (max-width: 600px) {
-  header {
-    position: static;
-  }
-  nav {
-    width: 100%;
-  }
-  nav a {
-    padding: 5px 7px;
-  }
-  .hero {
-    padding-top: 45px;
-  }
-  section {
-    padding: 35px 5%;
-  }
-}
-</style>
-</head>
-
+:root{--bg:#0b1230;--c:#141d45;--c2:#1f2a5e;--tx:#eef1ff;--mu:#aab3d9;--bl:#4f8cff;--pu:#8b5cf6;--gr:#2ee6a6;--er:#ff6b81;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(circle at 85% -10%,#3a2f9a55,transparent 55%),var(--bg);color:var(--tx);font:16px/1.7 Tajawal,Tahoma,Arial,sans-serif;min-height:100vh}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:#0b1230ee;border-bottom:1px solid #ffffff1a;backdrop-filter:blur(8px)}
+nav{display:flex;gap:4px;overflow-x:auto;padding:6px 10px}
+nav a{white-space:nowrap;color:var(--mu);text-decoration:none;padding:6px 12px;border-radius:20px;font-size:14px}
+nav a.on{background:var(--c2);color:var(--gr)}
+.w{max-width:880px;margin:auto;padding:14px}
+h1{font-size:2.2rem;margin:.3em 0}h2{font-size:1.2rem;margin:1.4em 0 .5em;color:var(--gr)}
+.mu{color:var(--mu)}.hero{text-align:center;padding:24px 0}.logo svg{filter:drop-shadow(0 0 14px #2ee6a688)}
+.card{background:var(--c);border:1px solid #ffffff1a;border-radius:16px;padding:14px;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}.grid .card{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.row.c{justify-content:center}
+.btn,.chip{font:inherit;color:var(--tx);background:var(--c2);border:1px solid #ffffff26;border-radius:12px;padding:10px 16px;cursor:pointer;min-height:44px;transition:transform .15s,background .2s}
+.btn:hover,.chip:hover{transform:translateY(-1px);background:#2a3878}
+.btn.p{background:linear-gradient(135deg,var(--bl),var(--pu));border:0}.btn.g{background:linear-gradient(135deg,#12b886,var(--bl));border:0;color:#04121a;font-weight:700}
+.btn.s{min-height:36px;padding:4px 12px;font-size:14px}.chip{padding:4px 12px;min-height:36px;font-size:14px;cursor:default}
+button.chip{cursor:pointer}.chip[aria-pressed=true]{background:var(--pu);border-color:var(--pu)}
+:focus-visible{outline:3px solid var(--gr);outline-offset:2px}
+label.f{display:block;margin:10px 0;font-size:14px;color:var(--mu)}
+input,textarea,select{width:100%;font:inherit;color:var(--tx);background:#0b1230;border:1px solid #ffffff33;border-radius:10px;padding:10px;margin-top:4px}
+input[type=checkbox]{width:20px;height:20px;margin:0}.ck{display:flex;gap:8px;align-items:center;margin:8px 0}
+.err{color:var(--er);font-size:13px;min-height:1px}.tag{font-size:12px;border-radius:8px;padding:2px 8px;background:#ffffff1a;margin-inline-start:8px}.tag.ok{background:#12b88655;color:var(--gr)}
+.bar{height:8px;background:#ffffff1a;border-radius:8px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gr),var(--bl));transition:width .4s}
+#toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));inset-inline:16px;margin:auto;max-width:420px;text-align:center;background:#12b886;color:#04121a;padding:10px;border-radius:12px;z-index:30;opacity:0;pointer-events:none;transition:opacity .25s}
+#toast.show{opacity:1}#toast.err{background:var(--er);color:#fff}
+.ov{position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}.ov .card{max-width:380px;width:100%}
+.ic{font-size:1.8rem}pre{white-space:pre-wrap;word-break:break-word;font:inherit;line-height:1.9}
+.bub{padding:10px 14px;border-radius:14px;margin:8px 0;max-width:88%}.bub.u{background:var(--bl);margin-inline-start:auto}.bub.b{background:var(--c2)}
+.opt{display:block;width:100%;text-align:right;margin:8px 0}.opt.right{background:#12b88666}.opt.wrong{background:#ff6b8166}
+footer{color:var(--mu);font-size:13px;text-align:center;padding:20px 14px}a{color:var(--bl)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head>
 <body>
-
-<header>
-  <div class="logo">🌱 نَمِّ <span>فكرتك</span></div>
-  <nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#workshop">طوّر فكرتك</a>
-    <a href="#awareness">التوعية</a>
-    <a href="#games">الألعاب</a>
-    <a href="#resources">المصادر</a>
-  </nav>
-</header>
-
-<main>
-
-<div class="hero" id="home">
-  <span class="badge">من بذرة صغيرة إلى فكرة تنمو</span>
-  <h1>كل مشروع عظيم<br>بدأ <span class="gradient">بفكرة</span></h1>
-  <p>
-    لديك فكرة ولا تعرف كيف تبدأ؟ أو تبحث عن شيء جديد تتعلمه؟
-    نَمِّ فكرتك مساحة تجمع تطوير الأفكار والتعلم والتوعية
-    والتفكير الإبداعي في مكان واحد.
-  </p>
-
-  <div class="actions">
-    <a class="btn" href="#workshop">🌱 لدي فكرة</a>
-    <a class="btn secondary" href="#games">🧠 أريد أن أتعلم</a>
-  </div>
-
-  <div class="stats">
-    <div class="stat"><strong>01</strong><span>ابدأ بفكرتك</span></div>
-    <div class="stat"><strong>02</strong><span>اكتشف المشكلة</span></div>
-    <div class="stat"><strong>03</strong><span>خطط للحل</span></div>
-    <div class="stat"><strong>04</strong><span>ابدأ بالتجربة</span></div>
-  </div>
-</div>
-
-<section id="workshop">
-  <div class="section-title">
-    <h2>🌱 ورشة نمو الفكرة</h2>
-    <p>أجب عن الأسئلة بالترتيب لبناء تصور أولي لمشروعك.</p>
-  </div>
-
-  <div class="box">
-    <div class="progress-wrap"><div id="progress"></div></div>
-
-    <div class="step active">
-      <span class="step-number">الخطوة ١ من ٥</span>
-      <h3>ما بذرة فكرتك؟</h3>
-      <div class="field">
-        <label for="ideaName">اسم الفكرة</label>
-        <input id="ideaName" placeholder="مثال: منصة لتبادل الكتب">
-      </div>
-      <div class="field">
-        <label for="ideaField">مجال الفكرة</label>
-        <select id="ideaField">
-          <option value="">اختر المجال</option>
-          <option>التقنية والابتكار</option>
-          <option>الصحة</option>
-          <option>البيئة</option>
-          <option>التعليم</option>
-          <option>الوعي المالي</option>
-          <option>خدمة المجتمع</option>
-          <option>مجال آخر</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="ideaDesc">اشرح فكرتك بطريقتك</label>
-        <textarea id="ideaDesc" placeholder="ما الشيء الذي تفكر في صنعه أو تطويره؟"></textarea>
-      </div>
-      <button class="btn" onclick="nextStep(1)">الخطوة التالية ←</button>
-    </div>
-
-    <div class="step">
-      <span class="step-number">الخطوة ٢ من ٥</span>
-      <h3>ما المشكلة التي تريد حلها؟</h3>
-      <div class="field">
-        <label for="problem">ما المشكلة التي لاحظتها؟</label>
-        <textarea id="problem" placeholder="صف المشكلة التي تريد أن تعالجها فكرتك."></textarea>
-      </div>
-      <div class="field">
-        <label for="audience">من الأشخاص الذين قد يستفيدون؟</label>
-        <input id="audience" placeholder="مثال: الطلاب، الأسر، أصحاب المشاريع">
-      </div>
-      <button class="btn secondary" onclick="nextStep(-1)">→ السابقة</button>
-      <button class="btn" onclick="nextStep(1)">التالية ←</button>
-    </div>
-
-    <div class="step">
-      <span class="step-number">الخطوة ٣ من ٥</span>
-      <h3>كيف يمكن أن تعمل فكرتك؟</h3>
-      <div class="field">
-        <label for="solution">ما الحل الذي تقترحه؟</label>
-        <textarea id="solution" placeholder="كيف ستساعد فكرتك في حل المشكلة؟"></textarea>
-      </div>
-      <div class="field">
-        <label for="difference">ما الذي يميز فكرتك؟</label>
-        <textarea id="difference" placeholder="ما الإضافة التي تتمنى أن تقدمها؟"></textarea>
-      </div>
-      <button class="btn secondary" onclick="nextStep(-1)">→ السابقة</button>
-      <button class="btn" onclick="nextStep(1)">التالية ←</button>
-    </div>
-
-    <div class="step">
-      <span class="step-number">الخطوة ٤ من ٥</span>
-      <h3>ما الذي تحتاج إليه؟</h3>
-      <div class="field">
-        <label for="tools">الأدوات والموارد المتاحة</label>
-        <textarea id="tools" placeholder="ما الأدوات أو المهارات أو المصادر التي تحتاجها؟"></textarea>
-      </div>
-      <div class="field">
-        <label for="cost">التكلفة المتوقعة إن وجدت</label>
-        <input id="cost" placeholder="مثال: لا أعرف بعد، أو تقدير مبدئي">
-        <small>هذا تقدير تكتبه بنفسك، وليس حسابًا ماليًا موثقًا.</small>
-      </div>
-      <button class="btn secondary" onclick="nextStep(-1)">→ السابقة</button>
-      <button class="btn" onclick="nextStep(1)">التالية ←</button>
-    </div>
-
-    <div class="step">
-      <span class="step-number">الخطوة ٥ من ٥</span>
-      <h3>خطوتك الأولى نحو التنفيذ</h3>
-      <div class="field">
-        <label for="firstStep">ما أول خطوة تستطيع تنفيذها؟</label>
-        <textarea id="firstStep" placeholder="مثال: البحث عن حلول مشابهة أو سؤال المستفيدين."></textarea>
-      </div>
-      <div class="field">
-        <label for="testPlan">كيف ستختبر فكرتك مبدئيًا؟</label>
-        <textarea id="testPlan" placeholder="كيف تعرف أن الحل مفيد فعلًا؟"></textarea>
-      </div>
-      <button class="btn secondary" onclick="nextStep(-1)">→ السابقة</button>
-      <button class="btn" onclick="makeSummary()">إنشاء ملخص الفكرة ✨</button>
-    </div>
-
-    <div class="result" id="summary"></div>
-    <div class="actions" id="summaryActions" style="display:none">
-      <button class="btn" onclick="copySummary()">نسخ الملخص</button>
-      <button class="btn secondary" onclick="downloadSummary()">حفظ الملخص نصيًا</button>
-      <button class="btn secondary" onclick="saveDraft()">حفظ المسودة في هذا المتصفح</button>
-    </div>
-    <p class="notice">المعلومات التي تدخلها تبقى في هذه الصفحة ما لم تستخدم خاصية الحفظ المحلي. لا تدخِل بيانات شخصية أو سرية.</p>
-  </div>
-</section>
-
-<section id="awareness">
-  <div class="section-title">
-    <h2>🌍 مساحة التوعية</h2>
-    <p>معرفة صغيرة قد تصنع فرقًا كبيرًا.</p>
-  </div>
-
-  <div class="grid">
-    <article class="card">
-      <div class="icon">🌿</div>
-      <h3>البيئة المستدامة</h3>
-      <p>ابدأ بعادة بسيطة: قلل الهدر، وأعد استخدام ما تستطيع، وافصل النفايات حيث تتوفر خدمة الفرز.</p>
-    </article>
-    <article class="card">
-      <div class="icon">💚</div>
-      <h3>الصحة والعافية</h3>
-      <p>النوم الكافي، والحركة المنتظمة، والغذاء المتوازن عادات تساعد على دعم الصحة العامة.</p>
-    </article>
-    <article class="card">
-      <div class="icon">🔐</div>
-      <h3>الوعي الرقمي</h3>
-      <p>لا تشارك كلمات المرور أو رموز التحقق، وتأكد من مصدر الرسائل قبل فتح الروابط.</p>
-    </article>
-    <article class="card">
-      <div class="icon">💰</div>
-      <h3>الوعي المالي</h3>
-      <p>دوّن مصروفاتك وميّز بين الحاجة والرغبة، وقارن الأسعار قبل اتخاذ قرار الشراء.</p>
-    </article>
-    <article class="card">
-      <div class="icon">🧠</div>
-      <h3>التفكير الناقد</h3>
-      <p>اسأل: ما مصدر المعلومة؟ ما الدليل؟ وهل توجد تفسيرات أخرى؟</p>
-    </article>
-    <article class="card">
-      <div class="icon">💡</div>
-      <h3>الإبداع والابتكار</h3>
-      <p>جرّب النظر إلى المشكلة من زوايا مختلفة، واجمع بين أفكار متباعدة لصناعة حلول جديدة.</p>
-    </article>
-  </div>
-</section>
-
-<section id="games">
-  <div class="section-title">
-    <h2>🎮 تحديات العقل</h2>
-    <p>اختبر معرفتك، وفكّر قبل أن تختار.</p>
-  </div>
-
-  <div class="grid">
-    <article class="card">
-      <div class="icon">🔎</div>
-      <h3>تحدي التفكير الناقد</h3>
-      <p>هل تستطيع التمييز بين الادعاء والدليل؟</p>
-      <button class="btn" onclick="startQuiz('critical')">ابدأ التحدي</button>
-    </article>
-    <article class="card">
-      <div class="icon">✨</div>
-      <h3>تحدي التفكير الإبداعي</h3>
-      <p>ابحث عن أكثر من حل للمشكلة.</p>
-      <button class="btn" onclick="startQuiz('creative')">ابدأ التحدي</button>
-    </article>
-    <article class="card">
-      <div class="icon">🌎</div>
-      <h3>تحدي الوعي العام</h3>
-      <p>اختبر معرفتك بالبيئة والمجتمع والتقنية.</p>
-      <button class="btn" onclick="startQuiz('awareness')">ابدأ التحدي</button>
-    </article>
-  </div>
-
-  <div class="box" id="quizBox" style="display:none;margin-top:20px">
-    <div id="quizCategory" class="step-number"></div>
-    <h3 id="quizQuestion"></h3>
-    <div id="quizOptions"></div>
-    <div id="quizFeedback" aria-live="polite"></div>
-    <p id="quizScore"></p>
-    <button class="btn secondary" id="nextQuestion" onclick="nextQuestion()" style="display:none">السؤال التالي</button>
-    <button class="btn" onclick="closeQuiz()">إغلاق اللعبة</button>
-  </div>
-</section>
-
-<section id="resources">
-  <div class="section-title">
-    <h2>📚 أدوات ومصادر للانطلاق</h2>
-    <p>استخدم مصادر موثوقة، وابحث عن الأدلة قبل اعتماد أي معلومة.</p>
-  </div>
-
-  <div class="grid">
-    <article class="card">
-      <div class="icon">🔬</div>
-      <h3>البحث العلمي</h3>
-      <p>ابحث عن الدراسات والأبحاث المنشورة.</p>
-      <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
-    </article>
-    <article class="card">
-      <div class="icon">🌐</div>
-      <h3>المعرفة العامة</h3>
-      <p>استكشف موضوعات متنوعة، ثم تحقق من المصادر الأصلية.</p>
-      <a class="btn" href="https://www.britannica.com/" target="_blank" rel="noopener">Britannica</a>
-    </article>
-    <article class="card">
-      <div class="icon">💻</div>
-      <h3>تعلم التقنية</h3>
-      <p>تعرف على أساسيات بناء صفحات الويب.</p>
-      <a class="btn" href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a>
-    </article>
-    <article class="card">
-      <div class="icon">🇸🇦</div>
-      <h3>معلومات رسمية سعودية</h3>
-      <p>ارجع إلى الجهات الرسمية عند البحث عن معلومات محلية.</p>
-      <a class="btn" href="https://www.my.gov.sa/" target="_blank" rel="noopener">البوابة الوطنية</a>
-    </article>
-  </div>
-</section>
-
-<section id="reflection">
-  <div class="section-title">
-    <h2>🪞 مساحة التفكير</h2>
-    <p>اكتب إجابتك بنفسك لتتدرب على التحليل وصناعة الحلول.</p>
-  </div>
-  <div class="box">
-    <label for="reflectionQuestion">لو استطعت حل مشكلة واحدة حولك، فما هي؟ ولماذا؟</label>
-    <textarea id="reflectionQuestion" placeholder="اكتب فكرتك هنا..."></textarea>
-    <button class="btn" onclick="saveReflection()">حفظ إجابتي محليًا</button>
-    <button class="btn secondary" onclick="loadReflection()">عرض إجابتي المحفوظة</button>
-    <p id="reflectionMessage" aria-live="polite"></p>
-    <p class="notice">الحفظ هنا داخل متصفحك فقط، وليس في قاعدة بيانات أو حساب سحابي.</p>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="logo">🌱 نَمِّ فكرتك</div>
-  <p>مساحة تجمع التعلم والتطوير والإبداع.</p>
-  <p>نسخة تجريبية قابلة للتطوير والتحسين.</p>
-</footer>
-
+<header><nav id="nav"></nav></header>
+<main class="w" id="app"></main>
+<footer>بياناتك تُحفظ في متصفحك فقط ولا تُرسل إلى أي جهة. المنصة لا تستخدم ذكاءً اصطناعيًا ولا تبحث في الإنترنت، وليست ضمانًا لنجاح الفكرة أو أصالتها. <span id="st"></span></footer>
+<div id="toast" role="status" aria-live="polite"></div>
 <script>
-/* ورشة تطوير الفكرة */
-let currentStep = 0;
-const steps = document.querySelectorAll(".step");
+const h=(t,a={},...c)=>{const e=document.createElement(t);for(const k in a){const v=a[k];if(k.slice(0,2)=='on')e.addEventListener(k.slice(2),v);else if(v!==false&&v!=null)e.setAttribute(k,v===true?'':v)}c.flat(9).forEach(x=>{if(x==null||x===false)return;e.append(x.nodeType?x:document.createTextNode(x))});return e};
+const app=document.getElementById('app'),st=document.getElementById('st');
+let tt;const toast=(m,er)=>{const t=document.getElementById('toast');t.textContent=m;t.className='show'+(er?' err':'');clearTimeout(tt);tt=setTimeout(()=>t.className='',2600)};
+const KEY='nammi_v1';let DB={p:[],cur:null,sc:[]};
+try{const r=localStorage.getItem(KEY);if(r)Object.assign(DB,JSON.parse(r))}catch(e){setTimeout(()=>toast('التخزين المحلي غير متاح؛ لن تبقى بياناتك بعد إغلاق الصفحة',1),400)}
+const save=q=>{try{localStorage.setItem(KEY,JSON.stringify(DB));if(!q)toast('تم الحفظ ✓');return true}catch(e){toast('تعذّر الحفظ في المتصفح. انسخ بياناتك عبر التصدير.',1);return false}};
+let t0;const auto=()=>{clearTimeout(t0);t0=setTimeout(()=>{const p=cur();if(p)p.u=Date.now();if(save(1))st.textContent='✓ حُفظ تلقائيًا'},500)};
+const cur=()=>DB.p.find(x=>x.id==DB.cur);
+const newP=(d={})=>{const p={id:'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),name:d.name||'مشروع جديد',d,sim:[],asm:[],tasks:[],s:0,vis:{},u:Date.now()};DB.p.push(p);DB.cur=p.id;save(1);return p};
+const startNew=()=>{const c=cur();if(!(c&&!c.d.name&&c.s==0))newP();go('dev')};
+const go=k=>{if(location.hash=='#'+k)route();else location.hash='#'+k};
+function dlg(msg,cb,val){const i=val!=null?h('input',{value:val,'aria-label':msg}):null;const ov=h('div',{class:'ov',role:'dialog','aria-modal':'true'},h('div',{class:'card'},h('p',{},msg),i,h('div',{class:'row'},h('button',{class:'btn p',onclick:()=>{const v=i?i.value.trim():true;if(i&&!v){toast('الاسم مطلوب',1);return}ov.remove();cb(v)}},'تأكيد'),h('button',{class:'btn',onclick:()=>ov.remove()},'إلغاء'))));document.body.append(ov);(i||ov.querySelector('button')).focus()}
+async function cp(t){try{await navigator.clipboard.writeText(t);toast('تم النسخ ✓')}catch(e){const a=h('textarea');a.value=t;document.body.append(a);a.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}a.remove();toast(ok?'تم النسخ ✓':'تعذّر النسخ تلقائيًا؛ حدّد النص يدويًا وانسخه',!ok)}}
+const chips=(opts,sel,multi,fn)=>{const w=h('div',{class:'row'});const draw=()=>w.replaceChildren(...opts.map(o=>h('button',{class:'chip','aria-pressed':multi?sel.includes(o):sel[0]===o,onclick:()=>{if(multi){const i=sel.indexOf(o);i<0?sel.push(o):sel.splice(i,1)}else sel[0]=sel[0]===o?'':o;draw();fn&&fn()}},o)));draw();return w};
 
-function showStep() {
-  steps.forEach((step, index) => {
-    step.classList.toggle("active", index === currentStep);
-  });
+/* ===== بيانات المراحل ===== */
+const S=[
+{t:'التعرف على الفكرة',f:[['name','اسم الفكرة','i',1],['field','المجال','i',1],['desc','وصف الفكرة بلغتك','a',1],['problem','المشكلة التي تحاول حلها','a',1],['aud','الفئة المستفيدة','i',1],['why','سبب اهتمامك بالمشكلة','a']]},
+{t:'فهم المشكلة',f:[['nat','طبيعة المشكلة','a'],['aff','الأشخاص المتأثرون بها','a'],['ctx','الظروف التي تظهر فيها','a'],['evi','الأدلة أو الملاحظات المتوفرة','a'],['unk','المعلومات التي لا تزال مجهولة','a']]},
+{t:'اكتشاف النواقص',sp:'gaps'},
+{t:'تطوير الحل',f:[['sol','الحل المقترح','a'],['how','طريقة عمله','a'],['ben','الفائدة المتوقعة','a'],['diff','أوجه الاختلاف التي تعتقد أنها موجودة','a'],['res','الموارد اللازمة','a'],['chal','التحديات المحتملة','a'],['alt','البدائل الممكنة','a']]},
+{t:'مقارنة الحلول المشابهة',L:'sim'},
+{t:'اختبار الافتراضات',L:'asm'},
+{t:'تخطيط المشروع',f:[['cost','التكاليف التقديرية (عند توفر معلومات كافية)','a'],['dur','المدة المتوقعة','i'],['risk','المخاطر المحتملة','a'],['track','طرق متابعة التقدم','a'],['next','الخطوة التالية المقترحة','a']],L:'tasks'},
+{t:'خريطة النمو',sp:'map'},
+{t:'التقرير النهائي',sp:'rep'}];
+const LF={sim:{ti:'حل مشابه',f:[['n','اسم الحل','i'],['d','وصفه','a'],['s','مصدر المعلومات','i'],['sm','أوجه التشابه','a'],['df','أوجه الاختلاف','a'],['mr','جوانب تحتاج بحثًا إضافيًا','a']]},
+asm:{ti:'افتراض',dn:'نُفّذ الاختبار فعلًا',f:[['n','الافتراض','a'],['ev','الأدلة المتوفرة','a'],['me','طريقة الاختبار المقترحة','a'],['rs','الموارد المطلوبة للاختبار','i'],['ex','النتيجة المتوقعة','a'],['ac','النتيجة الفعلية (بعد التنفيذ فقط)','a']]},
+tasks:{ti:'مهمة',dn:'أُنجزت',f:[['n','المهمة (رتّبها حسب الأولوية)','i']]}};
 
-  document.getElementById("progress").style.width =
-    ((currentStep / 4) * 100) + "%";
-}
+const fld=(o,[k,l,ty,rq])=>{const e=h(ty=='a'?'textarea':'input',{rows:3});e.value=o[k]||'';const er=h('div',{class:'err'});e.addEventListener('input',()=>{o[k]=e.value;er.textContent='';auto();const p=cur();if(p&&o===p.d&&k=='name')p.name=e.value.trim()||'مشروع جديد'});const lb=h('label',{class:'f'},l+(rq?' *':''),e,er);lb._er=er;return lb};
+function lst(p,key){const c=LF[key],box=h('div');const draw=()=>box.replaceChildren(...p[key].map((it,i)=>h('div',{class:'card'},h('b',{},c.ti+' '+(i+1)),c.dn&&h('span',{class:'tag'+(it.done?' ok':'')},it.done?'مُنفَّذ':'مقترح'),c.f.map(f=>fld(it,f)),c.dn&&h('label',{class:'ck'},h('input',{type:'checkbox',checked:it.done,onchange:e=>{it.done=e.target.checked;auto();draw()}}),c.dn),h('button',{class:'btn s',onclick:()=>dlg('حذف هذا العنصر؟',()=>{p[key].splice(i,1);auto();draw()})},'حذف'))),h('button',{class:'btn',onclick:()=>{p[key].push({});auto();draw()}},'＋ إضافة '+c.ti));draw();return box}
+const filled=(p,k)=>(p.d[k]||'').trim();
+function gaps(p){const m=[],w=[],q=[];S.forEach(s=>{(s.f||[]).forEach(([k,l,ty])=>{const v=filled(p,k);if(!v){m.push(l);q.push('ما إجابتك عن: «'+l+'»؟')}else if(ty=='a'&&v.length<25){w.push(l);q.push('هل يمكنك توضيح «'+l+'» بمثال أو تفصيل أكثر؟')}});if(s.L&&!p[s.L].length)m.push(LF[s.L].ti+' (لم يُسجَّل أي عنصر)')});return{m,w,q}}
+const pct=(p,i)=>{const s=S[i];let a=0,b=0;(s.f||[]).forEach(f=>{b++;if(filled(p,f[0]))a++});if(s.L){b++;if(p[s.L].length)a++}return b?Math.round(a/b*100):(p.vis[i]?100:0)};
+const total=p=>Math.round(S.reduce((a,_,i)=>a+pct(p,i),0)/S.length);
+function repText(p){const v=k=>filled(p,k)||'(لم تُدخل)',g=gaps(p),L=a=>a.length?a:['—'];
+return ['تقرير مشروع: '+v('name'),'التاريخ: '+new Date().toLocaleDateString('ar'),'','1) ملخص الفكرة','المجال: '+v('field'),v('desc'),'','2) المشكلة المستهدفة',v('problem'),'الأدلة: '+v('evi'),'','3) الحل المقترح',v('sol'),'طريقة العمل: '+v('how'),'الفائدة: '+v('ben'),'','4) الفئة المستفيدة',v('aud'),'','5) المعلومات الناقصة',...L(g.m.map(x=>'- '+x)),'تحتاج توضيحًا: '+(g.w.join('، ')||'—'),'','6) الحلول المشابهة التي تمت مراجعتها',...L(p.sim.map(x=>`- ${x.n||'؟'} | تشابه: ${x.sm||'—'} | اختلاف: ${x.df||'—'}`)),'','7) الافتراضات التي تحتاج إلى اختبار',...L(p.asm.map(x=>`- ${x.n||'؟'} — ${x.done?'نُفّذ؛ النتيجة الفعلية: '+(x.ac||'غير مدخلة'):'لم يُنفَّذ بعد (الطريقة المقترحة: '+(x.me||'—')+')'}`)),'','8) خطة العمل',...L(p.tasks.map((t,i)=>`${i+1}. ${t.n||'؟'} ${t.done?'[✓]':'[ ]'}`)),'المدة: '+v('dur'),'المخاطر: '+v('risk'),'','9) الموارد والتكاليف التقديرية','الموارد: '+v('res'),'التكاليف: '+v('cost'),'','10) الخطوات التالية',v('next'),'','11) المصادر التي أدخلها المستخدم',...L(p.sim.filter(x=>x.s).map(x=>'- '+x.s)),'','تنبيه: هذا التقرير يعكس المعلومات التي أدخلتها فقط، وليس ضمانًا لنجاح المشروع أو أصالته. لم تُجرَ أي عملية بحث أو تحقق خارجي.'].join('\n')}
 
-function nextStep(direction) {
-  const next = currentStep + direction;
+/* ===== الصفحات ===== */
+const LOGO='<svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true"><defs><linearGradient id="lg"><stop offset="0" stop-color="#2ee6a6"/><stop offset="1" stop-color="#4f8cff"/></linearGradient></defs><path d="M32 58V30" stroke="url(#lg)" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M32 36C32 22 22 15 9 15c0 13 8 21 23 21z" fill="url(#lg)"/><path d="M32 30c0-12 8-19 23-19 0 13-8 21-23 19z" fill="#8b5cf6"/></svg>';
+function vHome(){const lg=h('div',{class:'logo'});lg.innerHTML=LOGO;
+return h('div',{},h('section',{class:'hero'},lg,h('h1',{},'نَمِّ فكرتك'),h('p',{class:'mu'},'من بذرة صغيرة إلى مشروع قابل للتطوير'),h('div',{class:'row c'},h('button',{class:'btn p',onclick:startNew},'لدي فكرة وأريد تطويرها'),h('button',{class:'btn g',onclick:()=>go('discover')},'أريد اكتشاف فكرة مناسبة لي'),h('button',{class:'btn',onclick:()=>document.getElementById('how').scrollIntoView({behavior:'smooth'})},'استكشف المنصة'))),
+h('h2',{},'مراحل تطوير المشروع'),h('div',{class:'row'},S.map((s,i)=>h('span',{class:'chip'},(i+1)+'. '+s.t))),
+h('h2',{},'المميزات'),h('div',{class:'grid'},[['🌱','رحلة إرشادية','تسع مراحل من الفكرة إلى التقرير.'],['🧩','اكتشاف النواقص','فحص آلي وفق قواعد مبرمجة.'],['🎮','ألعاب تعليمية','تدريب على التفكير بثلاثة مستويات.'],['💾','حفظ محلي','مشاريعك تُحفظ في متصفحك.']].map(([i,t,d])=>h('div',{class:'card'},h('div',{class:'ic'},i),h('b',{},t),h('p',{class:'mu'},d)))),
+h('h2',{},'روابط سريعة'),h('div',{class:'row'},[['qa','مركز الأسئلة'],['games','الألعاب'],['sources','المصادر'],['projects','مشاريعي']].map(([k,t])=>h('button',{class:'btn',onclick:()=>go(k)},t))),
+h('h2',{id:'how'},'كيف تعمل المنصة؟'),h('div',{class:'card'},h('ol',{},h('li',{},'أدخل فكرتك، أو أجب عن استبيان لاكتشاف فكرة.'),h('li',{},'أكمل المراحل؛ تُحفظ إجاباتك تلقائيًا في متصفحك.'),h('li',{},'راجع النواقص وأنشئ تقريرك وانسخه.')),h('p',{class:'mu'},'تنبيه: لا يوجد ذكاء اصطناعي ولا بحث في الإنترنت هنا؛ النواقص تُكتشف بقواعد مكتوبة، والأسئلة والإجابات جاهزة سلفًا، والمقترحات أفكار للاستكشاف وليست توصيات مضمونة.')))}
 
-  if (next < 0 || next >= steps.length) return;
+function vProj(){const w=h('div',{},h('h1',{},'مشاريعي'),h('div',{class:'card'},'💾 المشاريع محفوظة في هذا المتصفح فقط. هذا ليس نظام حسابات ولا مزامنة بين الأجهزة، وحذف بيانات المتصفح قد يمسح مشاريعك. صدّر نسخة احتياطية بين حين وآخر.'),h('button',{class:'btn p',onclick:startNew},'＋ مشروع جديد'));
+if(!DB.p.length)w.append(h('p',{class:'mu'},'لا توجد مشاريع بعد.'));
+DB.p.forEach(p=>w.append(h('div',{class:'card'},h('b',{},p.name),h('span',{class:'tag'},'اكتمال '+total(p)+'%'),h('div',{class:'bar'},h('i',{style:'width:'+total(p)+'%'})),h('div',{class:'mu'},'آخر تعديل: '+new Date(p.u).toLocaleString('ar')),h('div',{class:'row'},h('button',{class:'btn s p',onclick:()=>{DB.cur=p.id;save(1);go('dev')}},'فتح وتعديل'),h('button',{class:'btn s',onclick:()=>dlg('اسم المشروع الجديد',v=>{p.name=v;p.d.name=v;save();route()},p.name)},'إعادة تسمية'),h('button',{class:'btn s',onclick:()=>cp(JSON.stringify(p))},'نسخ البيانات'),h('button',{class:'btn s',onclick:()=>dlg('حذف «'+p.name+'» نهائيًا؟',()=>{DB.p=DB.p.filter(x=>x!=p);if(DB.cur==p.id)DB.cur=null;save();route()})},'حذف')))));
+const ta=h('textarea',{rows:3,placeholder:'ألصق هنا بيانات مشروع منسوخة سابقًا'});
+w.append(h('h2',{},'استيراد مشروع'),ta,h('button',{class:'btn',onclick:()=>{try{const o=JSON.parse(ta.value);if(!o||typeof o.d!='object'||typeof o.name!='string')throw 0;const p=newP(o.d);p.name=String(o.name);['sim','asm','tasks'].forEach(k=>{if(Array.isArray(o[k]))p[k]=o[k]});save();toast('تم الاستيراد ✓');route()}catch(e){toast('البيانات غير صالحة',1)}}},'استيراد'));return w}
 
-  if (direction > 0 && currentStep === 0) {
-    if (!document.getElementById("ideaName").value.trim()) {
-      alert("اكتب اسم فكرتك أولًا.");
-      return;
-    }
-    if (!document.getElementById("ideaDesc").value.trim()) {
-      alert("اكتب وصفًا مختصرًا لفكرتك أولًا.");
-      return;
-    }
-  }
+function vDev(){let p=cur();if(!p)p=newP();const i=p.s,s=S[i];p.vis[i]=1;auto();
+const go2=n=>{p.s=n;auto();route()};
+const w=h('div',{},h('div',{class:'row'},h('b',{},'المرحلة '+(i+1)+' من 9: '+s.t),h('select',{'aria-label':'الانتقال إلى مرحلة',style:'width:auto;margin:0 auto 0 0',onchange:e=>go2(+e.target.value)},S.map((x,j)=>h('option',{value:j,selected:j==i},(j+1)+'. '+x.t)))),h('div',{class:'bar'},h('i',{style:'width:'+(i+1)/9*100+'%'})));
+let labs=[];const c=h('div',{class:'card'});
+if(s.f){labs=s.f.map(f=>fld(p.d,f));c.append(...labs);
+if(i==1){const ev=labs[3],q=fld(p.d,['evq','كيف يمكنك جمع دليل على وجود المشكلة؟','a']);const tg=()=>q.style.display=filled(p,'evi')?'none':'';ev.querySelector('textarea').addEventListener('input',tg);tg();c.append(q)}}
+if(s.L){c.append(lst(p,s.L))}
+if(s.sp=='gaps'){const g=gaps(p),ok=S.flatMap(x=>x.f||[]).filter(f=>filled(p,f[0])).length;
+c.append(h('p',{class:'mu'},'⚠ الاكتشاف هنا آلي وفق قواعد مبرمجة (حقل فارغ، أو إجابة قصيرة جدًا)، وليس حكمًا علميًا على جودة الفكرة.'),h('h3',{},'✓ حقول أدخلتها: '+ok),h('h3',{},'الحقول الناقصة ('+g.m.length+')'),h('ul',{},g.m.length?g.m.map(x=>h('li',{},x)):h('li',{},'لا نواقص ظاهرة')),h('h3',{},'إجابات تحتاج توضيحًا ('+g.w.length+')'),h('ul',{},g.w.length?g.w.map(x=>h('li',{},x)):h('li',{},'—')),h('h3',{},'أسئلة مقترحة'),h('ul',{},g.q.length?g.q.slice(0,10).map(x=>h('li',{},x)):h('li',{},'—')))}
+if(s.sp=='map'){c.append(...S.map((x,j)=>j==7?'':h('div',{class:'card'},h('b',{},(j+1)+'. '+x.t),h('span',{class:'tag'+(pct(p,j)==100?' ok':'')},pct(p,j)+'%'),h('div',{class:'bar'},h('i',{style:'width:'+pct(p,j)+'%'})),h('button',{class:'btn s',onclick:()=>go2(j)},'فتح المرحلة'))));
+const rem=p.tasks.filter(t=>!t.done).length;c.append(h('h3',{},'المهام: المنجز '+(p.tasks.length-rem)+'، المتبقي '+rem),...p.tasks.map(t=>h('label',{class:'ck'},h('input',{type:'checkbox',checked:t.done,onchange:e=>{t.done=e.target.checked;auto();route()}}),t.n||'(مهمة بلا اسم)')),p.tasks.length?'':h('p',{class:'mu'},'أضف مهامك في مرحلة «تخطيط المشروع».'))}
+if(s.sp=='rep'){const tx=repText(p);c.append(h('div',{class:'row'},h('button',{class:'btn p',onclick:()=>cp(tx)},'نسخ التقرير'),h('button',{class:'btn',onclick:()=>cp(JSON.stringify(p))},'تصدير بيانات المشروع (نسخ)')),h('pre',{},tx))}
+w.append(c,h('div',{class:'row'},i>0&&h('button',{class:'btn',onclick:()=>go2(i-1)},'→ رجوع'),h('button',{class:'btn g',onclick:()=>save()},'💾 حفظ'),i<8&&h('button',{class:'btn p',onclick:()=>{let ok=true;(s.f||[]).forEach((f,j)=>{if(f[3]&&!filled(p,f[0])){labs[j]._er.textContent='هذا الحقل مطلوب';ok=false}});if(!ok){toast('أكمل الحقول المطلوبة أولًا',1);return}go2(i+1)}},'متابعة ←')));return w}
 
-  currentStep = next;
-  showStep();
-}
-
-function getValue(id) {
-  return document.getElementById(id).value.trim() || "لم تتم الإجابة بعد";
-}
-
-function makeSummary() {
-  const text =
-`ملخص فكرة مشروع — نَمِّ فكرتك
-
-اسم الفكرة:
-${getValue("ideaName")}
-
-المجال:
-${getValue("ideaField")}
-
-وصف الفكرة:
-${getValue("ideaDesc")}
-
-المشكلة:
-${getValue("problem")}
-
-الفئة المستفيدة:
-${getValue("audience")}
-
-الحل المقترح:
-${getValue("solution")}
-
-ما يميز الفكرة:
-${getValue("difference")}
-
-الأدوات والموارد:
-${getValue("tools")}
-
-التكلفة التقديرية:
-${getValue("cost")}
-
-الخطوة الأولى:
-${getValue("firstStep")}
-
-طريقة اختبار الفكرة:
-${getValue("testPlan")}
-
-ملاحظة:
-هذا ملخص أولي مبني على إجابات المستخدم، وليس إثباتًا للجدوى أو الأصالة أو النجاح.`;
-
-  const summary = document.getElementById("summary");
-  summary.textContent = text;
-  summary.style.display = "block";
-  document.getElementById("summaryActions").style.display = "flex";
-  document.getElementById("progress").style.width = "100%";
-  summary.scrollIntoView({behavior: "smooth", block: "start"});
-}
-
-function copySummary() {
-  const text = document.getElementById("summary").textContent;
-
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text)
-      .then(() => alert("تم نسخ الملخص."))
-      .catch(() => fallbackCopy(text));
-  } else {
-    fallbackCopy(text);
-  }
-}
-
-function fallbackCopy(text) {
-  const area = document.createElement("textarea");
-  area.value = text;
-  document.body.appendChild(area);
-  area.select();
-  try {
-    document.execCommand("copy");
-    alert("تم النسخ إن سمح المتصفح بذلك.");
-  } catch (error) {
-    alert("تعذر النسخ تلقائيًا. حددي النص وانسخيه يدويًا.");
-  }
-  area.remove();
-}
-
-function downloadSummary() {
-  const text = document.getElementById("summary").textContent;
-  const blob = new Blob(["\uFEFF" + text], {type: "text/plain;charset=utf-8"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "ملخص-فكرتي.txt";
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function saveDraft() {
-  const ids = [
-    "ideaName", "ideaField", "ideaDesc", "problem", "audience",
-    "solution", "difference", "tools", "cost", "firstStep", "testPlan"
-  ];
-  const data = {};
-  ids.forEach(id => data[id] = document.getElementById(id).value);
-
-  try {
-    localStorage.setItem("namiIdeaDraft", JSON.stringify(data));
-    alert("حُفظت المسودة في هذا المتصفح.");
-  } catch (error) {
-    alert("لم يتم الحفظ. قد لا يدعم المتصفح التخزين في هذه الصفحة.");
-  }
-}
-
-function loadDraft() {
-  try {
-    const data = JSON.parse(localStorage.getItem("namiIdeaDraft") || "{}");
-    Object.keys(data).forEach(id => {
-      const element = document.getElementById(id);
-      if (element) element.value = data[id];
-    });
-  } catch (error) {
-    console.log("لا توجد مسودة قابلة للقراءة.");
-  }
-}
-
-loadDraft();
-
-/* الألعاب التعليمية */
-const quizzes = {
-  critical: {
-    name: "التفكير الناقد",
-    questions: [
-      {
-        q: "قرأ شخص منشورًا يقول إن منتجًا ما يحل كل المشكلات. ما التصرف الأنسب؟",
-        options: [
-          "تصديقه فورًا",
-          "البحث عن أدلة ومصادر مستقلة",
-          "نشره دون قراءة"
-        ],
-        answer: 1,
-        why: "التحقق من الأدلة والمصادر يساعد على تقييم الادعاء."
-      },
-      {
-        q: "وجدت معلومتين متعارضتين على الإنترنت. ماذا تفعل؟",
-        options: [
-          "أختار الأقصر
+const IDEAS=[['منصة تبادل ملخصات دراسية','التعليم','صعوبة الوصول إلى ملخصات موثوقة قبل الاختبارات','التعليم','تقني'],['ألعاب مراجعة قصيرة للمواد','التعليم','ضعف الحافز على المراجعة المنتظمة','التعليم','خدمة'],['مذكّر عادات صحية بسيط','الصحة','نسيان الأنشطة الصحية اليومية','الصحة','تقني'],['حملة توعية بالنوم الصحي للطلاب','الصحة','قلة وعي الطلاب بأثر السهر','الصحة','توعوي'],['نظام فرز نفايات بالمدرسة','البيئة','خلط النفايات القابلة لإعادة التدوير','البيئة','خدمة'],['أداة لقياس هدر الطعام المنزلي','البيئة','عدم معرفة حجم الهدر','البيئة','تقني'],['أداة تنظيم مهام للفرق الطلابية','التقنية','تشتت المهام بين مجموعات الدردشة','التقنية','تقني'],['ورشة تعريفية بالأمان الرقمي','التقنية','قلة الوعي بحماية الحسابات','التقنية','توعوي'],['منصة تطوع محلية','المجتمع','صعوبة معرفة فرص التطوع القريبة','المجتمع','تقني'],['مبادرة مساعدة كبار السن تقنيًا','المجتمع','صعوبة استخدامهم للخدمات الرقمية','المجتمع','خدمة'],['حساس رطوبة منخفض التكلفة للنباتات','الزراعة','الإفراط أو التقصير في الري','الزراعة','منتج'],['دليل مبسط للزراعة المنزلية','الزراعة','قلة المعرفة بالزراعة المنزلية','الزراعة','توعوي']];
+const D={int:[],kind:[''],aud:[''],time:['']};
+function vDisc(){const res=h('div'),show=()=>{if(!D.int.length){toast('اختر مجالًا واحدًا على الأقل',1);return}const sc=IDEAS.map(x=>[x,(D.int.includes(x[3])?2:0)+(D.kind[0]==x[4]?1:0)]).filter(a=>a[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,4);
+res.replaceChildren(h('h2',{},'اقتراحات للاستكشاف'),h('p',{class:'mu'},'هذه أفكار أولية مبنية على قواعد مكتوبة مسبقًا (مجالاتك ونوع المشروع)، وليست توصيات مضمونة النجاح ولا ناتجة عن ذكاء اصطناعي.'),...sc.map(([x])=>h('div',{class:'card'},h('b',{},x[0]),h('span',{class:'tag'},x[4]),h('p',{class:'mu'},'المشكلة: '+x[2]),h('button',{class:'btn p s',onclick:()=>{newP({name:x[0],field:x[1],problem:x[2],aud:D.aud[0]||'',why:D.time[0]?'الوقت المتاح: '+D.time[0]:''});go('dev')}},'طوّر هذه الفكرة'))));res.scrollIntoView({behavior:'smooth'})};
+return h('div',{},h('h1',{},'اكتشف فكرة مناسبة'),h('div',{class:'card'},h('p',{},'المجالات التي تهمك (يمكن اختيار أكثر
